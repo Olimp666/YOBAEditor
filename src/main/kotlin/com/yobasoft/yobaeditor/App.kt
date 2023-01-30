@@ -17,6 +17,8 @@ class Window {
     private val height = 1080.0
     private val aPaneInSPane = AnchorPane()
     private val scrollPane = ZoomableScrollPane(aPaneInSPane)
+    private var lastX = 20.0
+    private var lastY = 50.0
 
     fun start(): Scene {
         val hBox = HBox()
@@ -25,9 +27,11 @@ class Window {
             button.style = "-fx-border-color: black; -fx-border-image-width: 8;"
             button.font = Font.font("Verdana", 20.0)
             button.onAction = EventHandler {
+                lastX = aPaneInSPane.children.last().layoutX
+                lastY = aPaneInSPane.children.last().layoutY
                 val node = getNode(str)
-                node.layoutX += 1000.0
-                node.layoutY += 500.0
+                node.layoutX += lastX + 50.0
+                node.layoutY += lastY + 100.0
                 node.onMouseEntered = EventHandler { e: MouseEvent ->
                     scrollPane.isPannable = false
                 }
