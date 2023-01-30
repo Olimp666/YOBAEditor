@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<fx:root fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="67.0" prefWidth="105.0" style="-fx-border-color: black; -fx-border-radius: 10; -fx-border-image-width: 8;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <GridPane prefHeight="58.0" prefWidth="80.0" styleClass="node-overlay">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="62.0" minWidth="45.0" prefWidth="54.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="39.0" minWidth="22.0" prefWidth="26.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="39.0" minWidth="22.0" prefWidth="26.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="titleBar" text="Node" />
+                <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="X" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></Button>
+                <TextField fx:id="valueField" styleClass="valueField" text="0" GridPane.rowIndex="1" />
+                <AnchorPane fx:id="outputLinkHandle" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="29.0" styleClass="outputLinkHandle" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <children>
+                        <Circle fill="LIME" layoutX="17.0" layoutY="17.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                    </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+                </AnchorPane>
+            </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+        </GridPane>
+    </children>
+</fx:root>
