@@ -222,5 +222,10 @@ abstract class DragNode : AnchorPane() {
             (it.value.first.children.find { it2 -> it2 is Circle } as Circle).fill = Paint.valueOf(Colors.GREEN)
         }
     }
+    open fun fromData(nodeData: Serializer.NodeData) {
+        id = nodeData.id
+        layoutX = nodeData.x ?: 100.0
+        layoutY = nodeData.y ?: 100.0
+    }
 
 }

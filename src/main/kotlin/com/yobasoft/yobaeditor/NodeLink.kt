@@ -13,9 +13,11 @@ class NodeLink : AnchorPane() {
     @FXML
     var nodeLink: CubicCurve? = null
 
-    private var inputNode: DragNode? = null
-    private var inputLinkString: String = ""
-    private var outputNode: DragNode? = null
+    var inputNode: DragNode? = null
+    var inputLinkString: String = ""
+    var outputNode: DragNode? = null
+    var outputAnchor: AnchorPane? = null
+    var inputAnchor: AnchorPane? = null
 
 
     @FXML
@@ -59,8 +61,11 @@ class NodeLink : AnchorPane() {
         nodeLink!!.endYProperty().bind(Bindings.add(source2.layoutYProperty(), a2.layoutY + a2.height / 2.0))
 
         inputLinkString = a2.id
+        outputAnchor = a1
+        inputAnchor = a2
         links(source1, source2)
     }
+
     private fun links(source1: DragNode, source2: DragNode) {
         outputNode = source1
         inputNode = source2

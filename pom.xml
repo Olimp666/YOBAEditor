@@ -21,6 +21,11 @@
             <artifactId>opencv</artifactId>
             <version>3.2.0-0</version>
         </dependency>
+        <dependency>
+            <groupId>org.hildan.fxgson</groupId>
+            <artifactId>fx-gson</artifactId>
+            <version>5.0.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
