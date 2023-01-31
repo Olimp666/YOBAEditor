@@ -15,6 +15,7 @@ import org.opencv.core.*
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
 import java.io.ByteArrayInputStream
+import java.io.File
 import java.io.IOException
 import kotlin.math.roundToInt
 
@@ -556,9 +557,11 @@ class InputNode : ImageNode() {
 
     override fun addInit() {
         openButton!!.onAction = EventHandler {
-            val fileChooser = FileChooser()
-            fileChooser.extensionFilters.add(FileChooser.ExtensionFilter("Image Files", "*.png"))
-            fileChooser.title = "Open Image File"
+            val fileChooser = FileChooser().apply {
+                extensionFilters.add(FileChooser.ExtensionFilter("Image Files", "*.png"))
+                title = "Open Image File"
+                initialDirectory = File(System.getProperty("user.home")+"/Desktop")
+            }
             val file = fileChooser.showOpenDialog(scene.window)
             if (file != null) {
                 imageMat = Imgcodecs.imread(file.absolutePath)
@@ -591,9 +594,12 @@ class OutputNode : ImageNode() {
         saveButton!!.onAction = EventHandler {
             val mat = nodes["firstLink"]!!.second?.getValue() as Mat? ?: return@EventHandler
 
-            val fileChooser = FileChooser()
-            fileChooser.title = "Save Picture"
-            fileChooser.extensionFilters.addAll(FileChooser.ExtensionFilter("Image Files", "*.png"))
+            val fileChooser = FileChooser().apply {
+                title = "Save Picture"
+                extensionFilters.addAll(FileChooser.ExtensionFilter("Image Files", "*.png"))
+                initialDirectory = File(System.getProperty("user.home")+"/Desktop")
+            }
+
             val dir = fileChooser.showSaveDialog(scene.window)
             if (dir != null) {
                 try {
