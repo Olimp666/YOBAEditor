@@ -1,7 +1,7 @@
 package com.yobasoft.yobaeditor
 
-import javafx.fxml.FXML
 import javafx.event.EventHandler
+import javafx.fxml.FXML
 import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.control.TextField
@@ -542,7 +542,7 @@ class AddImgNode : ImageNode() {
     }
 }
 
-class StartNode : ImageNode() {
+class InputNode : ImageNode() {
     override val nodeType: NodeTypes = NodeTypes.IMAGE
 
     @FXML
@@ -570,12 +570,12 @@ class StartNode : ImageNode() {
     }
 
     init {
-        init("StartNode.fxml")
+        init("InputNode.fxml")
 
     }
 }
 
-class EndNode : ImageNode() {
+class OutputNode : ImageNode() {
     @FXML
     var saveButton: Button? = null
 
@@ -589,7 +589,7 @@ class EndNode : ImageNode() {
         (firstLink!!.children.find { it is Label } as Label).text = "IMG"
 
         saveButton!!.onAction = EventHandler {
-            val mat = nodes["firstLink"]!!.second?.getValue() as Mat??: return@EventHandler
+            val mat = nodes["firstLink"]!!.second?.getValue() as Mat? ?: return@EventHandler
 
             val fileChooser = FileChooser()
             fileChooser.title = "Save Picture"
@@ -606,6 +606,6 @@ class EndNode : ImageNode() {
     }
 
     init {
-        init("EndNode.fxml")
+        init("OutputNode.fxml")
     }
 }
